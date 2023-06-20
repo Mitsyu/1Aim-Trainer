@@ -39,7 +39,7 @@ namespace aimm
 
         protected override void Initialize()
         {
-            // Set up the camera
+            // camera set up
             camera = new Camera(this);
             camera.SetPosition(new Vector3(0, 0, 10));
             Components.Add(camera);
@@ -65,10 +65,8 @@ namespace aimm
             switch (gameState)
             {
                 case GameState.MainMenu:
-                    // Update the main menu
                     mainMenu.Update(gameTime);
 
-                    // Check if the player starts the game
                     if (mainMenu.StartGame)
                     {
                         gameState = GameState.Playing;
@@ -77,7 +75,6 @@ namespace aimm
                     break;
 
                 case GameState.Playing:
-                    // Handle input for camera movement
                     float movementSpeed = 0.1f;
                     Vector3 moveVector = Vector3.Zero;
 
@@ -91,12 +88,9 @@ namespace aimm
                     if (keyboardState.IsKeyDown(Keys.D))
                         moveVector.X = movementSpeed;
 
-                    // Move the camera
                     Vector3 newPosition = camera.PreviewMove(moveVector);
                     camera.Move(newPosition);
 
-                    // Update the target position
-                    // Replace this with your own logic to move the target
                     targetPosition.X += 0.01f;
                     targetPosition.Y += 0.005f;
 
