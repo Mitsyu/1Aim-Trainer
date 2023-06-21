@@ -12,7 +12,7 @@ namespace aimm
         private enum GameState
         {
             MainMenu,
-            Playing
+            Playing  
         }
 
         private GraphicsDeviceManager graphics;
